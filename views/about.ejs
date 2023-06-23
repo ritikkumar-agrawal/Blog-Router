@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head.ejs') %>
+
+<body>
+    
+    <%- include('./partials/nav.ejs') %>
+    
+
+    <div class="about content" id="AboutContent">
+        <h3>About US</h3>
+        <br>
+        <p>Welcome to Blog Router! We are a simple and user-friendly blog website created by 
+            <i><b>Ritik Agrawal</b></i> from <b>NIT Rourkela</b>. Our platform allows you to create and publish your own blog posts effortlessly. Express yourself, share your thoughts, and connect with a vibrant community of bloggers. Join us on this exciting journey of creativity and inspiration. Start blogging with ease on <i>Blog Router</i> today!</p>
+            <br>
+            <p>Upcoming feature: Authentication</p>
+            
+
+
+            <h2 id="contact-heading" >Contact Us</h2>
+
+            <div class="contact">
+                <form action="mailto:ritikagrawal3268@google.com" method="POST" enctype="text/plain">
+                  <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="feedback">Feedback:</label>
+                    <textarea id="feedback" name="feedback" rows="5" required></textarea>
+                  </div>
+                  <input class="submit-btn" type="submit" value="Submit">
+                </form>
+              </div>
+
+    </div>
+
+
+<%- include('./partials/footer.ejs') %>
+
+
+</body>
+</html>

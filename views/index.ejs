@@ -1,0 +1,54 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="blogs content">
+    <h2>All Blogs</h2>
+    <% let num = 1; %>
+
+    <% if (blogs.length > 0) { %>
+        <% blogs.forEach(blog => { %>
+
+        <div class="part2">
+            <div class="part1">
+                <a class="single" href="/blogs/<%= blog._id %>">
+                    <h3 class="title"> <%= num + "." %> <%= blog.title %></h3>
+                </a>
+                <button class="delete" data-doc="<%= blog._id %>" >Delete</button>
+            </div>
+            <p class="snippet"><%= blog.snippet %></p>
+        </div>
+        <p class ="time" > Posted on <%= blog.timestamp %></p>
+        <hr>
+        <% num = num + 1 %>
+        <% }) %>
+    <% } else { %>
+        <p>There are no blogs to display...</p>
+    <% } %>
+  </div>
+
+
+
+  <script>
+    const trashcan = document.querySelector('button.delete');
+    trashcan.addEventListener('click', (e) => {
+      const endpoint = `/blogs/${trashcan.dataset.doc}`;
+      fetch(endpoint, {
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => window.location.href = data.redirect)
+      .catch(err => console.log(err));
+    });
+  </script>
+
+
+
+  <%- include("./partials/footer.ejs") %>
+
+
+  
+</body>
+</html>
